@@ -1,0 +1,47 @@
+students = []
+n = int(input())
+
+# append the input into the students list
+for _ in range(n):
+    name = input()
+    score = float(input())
+    students.append([name,score])
+
+# sort students score wise in accending order    
+sort_students = sorted(students, key = lambda x: x[1])
+
+# extract unique students based on score
+unique_students = []
+seen_scores = set() 
+
+for i in sort_students:
+    if i[1] not in seen_scores: 
+        unique_students.append(i)
+        seen_scores.add(i[1]) 
+        
+# find second lowest grade 
+if len(unique_students) > 1:
+    second_lowest_grade = unique_students[1][1]
+
+# find second lowest students
+second_lowest_students = []
+
+for i in sort_students: 
+    if i[1] == second_lowest_grade:  
+        second_lowest_students.append(i[0])
+    
+# sort alphabatically
+second_lowest_students.sort()  
+
+for i in second_lowest_students:
+    print(i)
+
+    
+    
+    
+
+        
+
+    
+
+
